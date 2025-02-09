@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Главное меню -->
     <div id="mainMenu" class="container">
         <h1>Геймификация процесса изучения истории Великой Отечественной Войны</h1>
         <button onclick="showSection('theory')">Теория</button>
         <button onclick="showSection('practice')">Практика</button>
     </div>
 
+    <!-- Раздел Теория -->
     <div id="theorySection" class="container" style="display:none;">
         <h2>Выберите тему для изучения:</h2>
         <button onclick="showTopic('battle_of_moscow')">Битва за Москву</button>
@@ -22,6 +24,7 @@
         <button onclick="backToMainMenu()">Вернуться в главное меню</button>
     </div>
 
+    <!-- Раздел Практика -->
     <div id="practiceSection" class="container" style="display:none;">
         <h2>Выберите тему для тестирования:</h2>
         <button onclick="startQuiz('battle_of_moscow')">Битва за Москву</button>
@@ -31,10 +34,28 @@
         <button onclick="backToMainMenu()">Вернуться в главное меню</button>
     </div>
 
+    <!-- Страница темы -->
     <div id="topicContent" class="container" style="display:none;">
         <h2 id="topicTitle"></h2>
         <p id="topicText"></p>
+        <img id="topicImage" src="" alt="Изображение темы">
         <button onclick="backToTheory()">Вернуться к выбору тем</button>
+    </div>
+
+    <!-- Тест -->
+    <div id="quizSection" class="container" style="display:none;">
+        <h2 id="quizQuestion"></h2>
+        <p id="quizCounter"></p>
+        <div id="quizOptions"></div>
+        <button onclick="submitAnswer()" id="submitBtn" style="display:none;">Ответить</button>
+    </div>
+
+    <!-- Результат теста -->
+    <div id="resultsSection" class="container" style="display:none;">
+        <h2 id="resultsMessage"></h2>
+        <button onclick="backToMainMenu()">Вернуться в главное меню</button>
+        <button onclick="restartQuiz()">Начать тест заново</button>
+        <button onclick="goToTheory()">Перейти к теории</button>
     </div>
 
     <script src="script.js"></script>
