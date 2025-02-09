@@ -60,3 +60,9 @@ button.wrong-answer {
 #submitBtn:hover {
     background-color: #0056b3;
 }
+
+#topicImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
