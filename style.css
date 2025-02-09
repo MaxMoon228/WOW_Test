@@ -31,19 +31,15 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    background-color: #e0e0e0; /* Серый цвет по умолчанию */
+    color: black;
 }
 
-button.correct-answer {
-    background-color: green;
-    color: white;
+button:hover {
+    background-color: #d1d1d1; /* При наведении чуть темнее */
 }
 
-button.wrong-answer {
-    background-color: red;
-    color: white;
-}
-
-#submitBtn {
+#submitBtn, #startTestBtn {
     padding: 15px 30px;
     font-size: 18px;
     background-color: #007bff;
@@ -57,7 +53,7 @@ button.wrong-answer {
     display: block;
 }
 
-#submitBtn:hover {
+#submitBtn:hover, #startTestBtn:hover {
     background-color: #0056b3;
 }
 
