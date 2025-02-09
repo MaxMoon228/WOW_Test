@@ -106,27 +106,45 @@ function showNextQuestion() {
     document.getElementById('quizCounter').textContent = `Вопрос ${currentQuestionIndex + 1}/${quizQuestions.length}`;
 
     const optionsContainer = document.getElementById('quizOptions');
-    optionsContainer.innerHTML = '';
+    optionsContainer.innerHTML = ''; // Очистить предыдущие варианты ответов
+
     question.options.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.textContent = option;
-        btn.onclick = () => selectOption(index);
+        btn.classList.add('option-btn'); // Добавляем класс для стилей
+        btn.dataset.index = index; // Сохраняем индекс варианта ответа
+        btn.onclick = () => selectOption(index, btn);
         optionsContainer.appendChild(btn);
     });
 
-    document.getElementById('submitBtn').style.display = 'none';
+    document.getElementById('submitBtn').style.display = 'none'; // Скрыть кнопку "Ответить" до выбора варианта
 }
 
-function selectOption(selectedIndex) {
-    const question = quizQuestions[currentQuestionIndex];
-    if (question.options[selectedIndex] === question.correct) {
-        score++;
+let selectedOption = null;
+
+function selectOption(selectedIndex, button) {
+    if (selectedOption !== null) {
+        selectedOption.classList.remove('correct-answer', 'wrong-answer'); // Убираем предыдущую подсветку
     }
 
-    document.getElementById('submitBtn').style.display = 'block';
+    selectedOption = button; // Сохраняем выбранный вариант
+    if (question.options[selectedIndex] === question.correct) {
+        button.classList.add('correct-answer'); // Подсветка правильного ответа
+    } else {
+        button.classList.add('wrong-answer'); // Подсветка неправильного ответа
+    }
+
+    document.getElementById('submitBtn').style.display = 'block'; // Показываем кнопку "Ответить"
 }
 
 function submitAnswer() {
+    if (selectedOption === null) return; // Если не выбран ответ, ничего не делаем
+
+    const question = quizQuestions[currentQuestionIndex];
+    if (question.options[selectedOption.dataset.index] === question.correct) {
+        score++;
+    }
+
     currentQuestionIndex++;
     showNextQuestion();
 }
