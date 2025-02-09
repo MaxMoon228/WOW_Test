@@ -21,3 +21,9 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+#topicImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
