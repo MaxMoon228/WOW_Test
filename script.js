@@ -83,9 +83,13 @@ function startQuiz(topic) {
     currentQuestionIndex = 0;
     score = 0;
 
-    showNextQuestion();
     document.getElementById('quizSection').style.display = 'block';
     document.getElementById('practiceSection').style.display = 'none';
+
+    // Показываем кнопку "Начать тестирование"
+    document.getElementById('startTestBtn').style.display = 'block';
+    document.getElementById('quizOptions').innerHTML = ''; // Очищаем варианты ответов
+    document.getElementById('submitBtn').style.display = 'none';
 }
 
 function shuffleArray(array) {
@@ -93,6 +97,16 @@ function shuffleArray(array) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+}
+
+let selectedOption = null;
+
+function startTest() {
+    // Скрываем кнопку "Начать тестирование"
+    document.getElementById('startTestBtn').style.display = 'none';
+
+    // Показываем первый вопрос
+    showNextQuestion();
 }
 
 function showNextQuestion() {
@@ -117,24 +131,25 @@ function showNextQuestion() {
         optionsContainer.appendChild(btn);
     });
 
-    document.getElementById('submitBtn').style.display = 'none'; // Скрыть кнопку "Ответить" до выбора варианта
-}
+    // Сбрасываем выбранный ответ
+    selectedOption = null;
 
-let selectedOption = null;
+    // Скрываем кнопку "Ответить"
+    document.getElementById('submitBtn').style.display = 'none';
+}
 
 function selectOption(selectedIndex, button) {
     if (selectedOption !== null) {
-        selectedOption.classList.remove('correct-answer', 'wrong-answer'); // Убираем предыдущую подсветку
+        selectedOption.style.backgroundColor = '#e0e0e0'; // Возвращаем стандартный серый цвет
     }
 
     selectedOption = button; // Сохраняем выбранный вариант
-    if (question.options[selectedIndex] === question.correct) {
-        button.classList.add('correct-answer'); // Подсветка правильного ответа
-    } else {
-        button.classList.add('wrong-answer'); // Подсветка неправильного ответа
-    }
+    selectedOption.style.backgroundColor = '#d1d1d1'; // Подсвечиваем выбранный ответ серым цветом
 
-    document.getElementById('submitBtn').style.display = 'block'; // Показываем кнопку "Ответить"
+    // Показываем кнопку "Ответить", если выбран ответ
+    if (selectedOption !== null) {
+        document.getElementById('submitBtn').style.display = 'block';
+    }
 }
 
 function submitAnswer() {
@@ -156,9 +171,27 @@ function showResults() {
 }
 
 function restartQuiz() {
-    startQuiz(currentQuiz);
+    // Скрываем результаты и показываем главный экран теста
+    document.getElementById('resultsSection').style.display = 'none';
+    document.getElementById('quizSection').style.display = 'block';
+    document.getElementById('startTestBtn').style.display = 'block';
+
+    // Обнуляем переменные
+    currentQuestionIndex = 0;
+    score = 0;
+    shuffleArray(quizQuestions); // Перемешиваем вопросы заново
 }
 
 function goToTheory() {
     showSection('theory');
+}
+
+function backToMainMenu() {
+    // Скрываем все секции и показываем главное меню
+    document.getElementById('mainMenu').style.display = 'block';
+    document.getElementById('theorySection').style.display = 'none';
+    document.getElementById('practiceSection').style.display = 'none';
+    document.getElementById('topicContent').style.display = 'none';
+    document.getElementById('quizSection').style.display = 'none';
+    document.getElementById('resultsSection').style.display = 'none';
 }
