@@ -91,6 +91,8 @@ function startQuiz(topic) {
             { question: 'Какой город был освобождён в ходе Курской битвы?', options: ['Орёл', 'Киев', 'Минск', 'Ленинград'], correct: 'Орёл' },
             { question: 'Как назывался этап контрнаступления советских войск после Курской битвы?', options: ['Операция «Багратион»', 'Операция «Полководец Румянцев»', 'Операция «Искра»', 'Операция «Тайфун»'], correct: 'Операция «Полководец Румянцев»' },
             { question: 'Какие силы СССР противостояли Вермахту?', options: ['Центральный и Воронежский фронты', 'Ленинградский и Карельский', 'Западный и Белорусский', 'Степной и Южный'], correct: 'Центральный и Воронежский фронты' },
+            { question: 'Как назывался этап контрнаступления советских войск после Курской битвы?', options: ['Операция «Багратион»', 'Операция «Полководец Румянцев»', 'Операция «Искра»', 'Операция «Тайфун»'], correct: 'Операция «Полководец Румянцев»' },
+            { question: 'Какие силы СССР противостояли Вермахту?', options: ['Центральный и Воронежский фронты', 'Ленинградский и Карельский', 'Западный и Белорусский', 'Степной и Южный'], correct: 'Центральный и Воронежский фронты' },
             { question: 'Какое стратегическое значение имела Курская битва?', options: ['Окончательный переход инициативы к СССР', 'Срыв блокады Ленинграда', 'Разгром немецкой группы армий «Север»', 'Захват Берлина'], correct: 'Окончательный переход инициативы к СССР' },
             { question: 'Как назывался южный участок Курской дуги, где шли особенно ожесточенные бои?', options: ['Белгород', 'Смоленск', 'Тула', 'Вязьма'], correct: 'Белгород' },
             { question: 'Какие страны были союзниками Германии в Курской битве?', options: ['Италия и Венгрия', 'Венгрия и Румыния', 'Франция и Финляндия', 'Болгария и Япония'], correct: 'Венгрия и Румыния' }
@@ -124,10 +126,8 @@ function startQuiz(topic) {
     document.getElementById('quizSection').style.display = 'block';
     document.getElementById('practiceSection').style.display = 'none';
 
-    // Показываем кнопку "Начать тестирование"
-    document.getElementById('startTestBtn').style.display = 'block';
-    document.getElementById('quizOptions').innerHTML = ''; // Очищаем варианты ответов
-    document.getElementById('submitBtn').style.display = 'none';
+    // Начинаем тест сразу, без кнопки "Начать тестирование"
+    showNextQuestion();
 }
 
 function shuffleArray(array) {
@@ -138,14 +138,6 @@ function shuffleArray(array) {
 }
 
 let selectedOption = null;
-
-function startTest() {
-    // Скрываем кнопку "Начать тестирование"
-    document.getElementById('startTestBtn').style.display = 'none';
-
-    // Показываем первый вопрос
-    showNextQuestion();
-}
 
 function showNextQuestion() {
     if (currentQuestionIndex >= quizQuestions.length) {
@@ -212,12 +204,14 @@ function restartQuiz() {
     // Скрываем результаты и показываем главный экран теста
     document.getElementById('resultsSection').style.display = 'none';
     document.getElementById('quizSection').style.display = 'block';
-    document.getElementById('startTestBtn').style.display = 'block';
 
     // Обнуляем переменные
     currentQuestionIndex = 0;
     score = 0;
     shuffleArray(quizQuestions); // Перемешиваем вопросы заново
+
+    // Начинаем тест сразу, без кнопки "Начать тестирование"
+    showNextQuestion();
 }
 
 function goToTheory() {
