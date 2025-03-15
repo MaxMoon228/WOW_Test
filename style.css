@@ -1,4 +1,4 @@
-/* style.css */
+/* Общие стили для body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,23 +7,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh; /* Убедитесь, что высота не ограничивает контент */
     background-color: #f4f4f4;
 }
 
+/* Контейнер для текста и изображений */
 .container {
     text-align: center;
     width: 80%;
-    max-width: 600px;
+    max-width: 1200px; /* Увеличил максимальную ширину для лучшего отображения */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    overflow: hidden; /* Убираем лишние полосы прокрутки */
 }
 
-#quizOptions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
+/* Стили для кнопок */
 button {
     padding: 10px 20px;
     font-size: 16px;
@@ -39,6 +36,7 @@ button:hover {
     background-color: #d1d1d1; /* При наведении чуть темнее */
 }
 
+/* Стили для кнопок "Ответить" и "Начать тестирование" */
 #submitBtn, #startTestBtn {
     padding: 15px 30px;
     font-size: 18px;
@@ -57,18 +55,13 @@ button:hover {
     background-color: #0056b3;
 }
 
+/* Стили для изображений */
 #topicImage {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
 }
 
-#topicTextContainer p {
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-
-/* Стили для изображений */
 .topic-image {
     max-width: 100%;
     height: auto;
@@ -77,6 +70,36 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка темы */
+.topic-header {
+    margin-top: 20px; /* Отступ сверху */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+/* Стили для контейнера текста */
+#topicTextContainer {
+    max-width: 1200px; /* Уменьшил максимальную ширину для удобства чтения */
+    margin: 20px auto; /* Отступ сверху и снизу */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    text-align: justify;
+    overflow-y: auto; /* Добавляем возможность прокрутки */
+    height: auto; /* Убрал фиксированную высоту, чтобы контейнер подстраивался под содержимое */
+    min-height: 400px; /* Минимальная высота для удобства */
+}
+
+/* Стили для абзацев текста */
+#topicTextContainer p {
+    margin-bottom: 15px;
+    font-size: 16px;
 }
 
 /* Стили для гиперссылок */
@@ -88,30 +111,4 @@ button:hover {
 
 #topicTextContainer a:hover {
     text-decoration: underline;
-}
-/* Стили для заголовка темы */
-.topic-header {
-    margin-top: 20px; /* Отступ сверху */
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #333;
-}
-
-/* Стили для кнопки "Вернуться к выбору тем" */
-#topicContent button {
-    margin-top: 20px;
-}
-/* Стили для контейнера текста */
-#topicTextContainer {
-    max-width: 1600px;
-    margin: 20px auto; /* Отступ сверху и снизу */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
-    text-align: justify;
-    overflow-y: auto; /* Добавляем возможность прокрутки */
-    height: 600px; /* Устанавливаем фиксированную высоту контейнера */
 }
