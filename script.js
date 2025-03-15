@@ -61,7 +61,7 @@ function backToMainMenu() {
 
 function showTopic(topic) {
     const topicData = topics[topic];
-    document.getElementById('topicTitle').textContent = topicData.title;
+    document.getElementById('topicTitle').textContent = topicData.title; // Устанавливаем заголовок темы
     document.getElementById('topicText').innerHTML = topicData.text; // Используем innerHTML для поддержки HTML-разметки
     document.getElementById('topicImage1').src = topicData.image; // Первое изображение
     document.getElementById('topicImage2').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Doroga_zhizni.jpg/800px-Doroga_zhizni.jpg'; // Второе изображение
