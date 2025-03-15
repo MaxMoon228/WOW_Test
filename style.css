@@ -83,7 +83,7 @@ button:hover {
 
 /* Стили для контейнера текста */
 #topicTextContainer {
-    max-width: 1200px; /* Уменьшил максимальную ширину для удобства чтения */
+    max-width: 800px; /* Уменьшил максимальную ширину для удобства чтения */
     margin: 20px auto; /* Отступ сверху и снизу */
     padding: 20px;
     background-color: #fff;
