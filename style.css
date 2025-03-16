@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Восстанавливаем центрирование по вертикали */
     background-color: #f4f4f4;
     overflow-y: auto; /* Разрешаем прокрутку всей страницы */
     min-height: 100vh; /* Минимальная высота страницы */
@@ -105,6 +106,21 @@ button:hover {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
+}
+
+/* Стили для кнопок "Ответить" и "Начать тестирование" */
+#submitBtn, #startTestBtn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0; /* Автоматические отступы сверху и снизу */
+    display: block;
 }
 
 #topicTextContainer a:hover {
