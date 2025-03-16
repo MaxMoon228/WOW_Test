@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
     background-color: #f4f4f4;
     overflow-y: auto; /* Разрешаем прокрутку всей страницы */
     min-height: 100vh; /* Минимальная высота страницы */
@@ -13,14 +14,14 @@ body {
 
 /* Контейнер для текста и изображений */
 .container {
-    text-align: center; /* Текст внутри контейнера по центру */
-    width: 80%; /* Ширина контейнера */
-    max-width: 1200px; /* Максимальная ширина для удобства чтения */
-    margin: 20px auto; /* Отступы сверху и снизу */
-    padding: 20px; /* Внутренние отступы */
-    box-sizing: border-box; /* Учитываем padding в ширине */
+    text-align: center;
+    width: 80%;
+    max-width: 1200px; /* Увеличил максимальную ширину для лучшего отображения */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание по вертикали */
 }
-
 /* Стили для кнопок */
 button {
     padding: 10px 20px;
