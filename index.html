@@ -9,10 +9,17 @@
 <body>
     <!-- Главное меню -->
     <div id="mainMenu" class="container">
+        <!-- Кнопка для ввода никнейма -->
+        <div id="nicknameButtonContainer">
+            <button id="nicknameButton" onclick="showNicknameModal()">
+                <img src="profile_icon.png" alt="Иконка профиля" id="profileIcon">
+            </button>
+        </div>
         <h1>Геймификация процесса изучения истории Великой Отечественной Войны</h1>
         <button onclick="showSection('theory')">Теория</button>
         <button onclick="showSection('practice')">Практика</button>
     </div>
+
     <!-- Раздел Теория -->
     <div id="theorySection" class="container" style="display:none;">
         <h2>Выберите тему для изучения:</h2>
@@ -22,6 +29,7 @@
         <button onclick="showTopic('kursk_battle')">Курская битва</button>
         <button onclick="backToMainMenu()">Вернуться в главное меню</button>
     </div>
+
     <!-- Раздел Практика -->
     <div id="practiceSection" class="container" style="display:none;">
         <h2>Выберите тему для тестирования:</h2>
@@ -32,18 +40,18 @@
         <button onclick="backToMainMenu()">Вернуться в главное меню</button>
     </div>
 
-<!-- Страница темы -->
-     <div id="topicContent" class="container" style="display:none;">
-     <!-- Добавляем название темы в верхней части -->
-         <h2 id="topicTitle" class="topic-header"></h2>
-         <div id="topicTextContainer">
-             <p id="topicText"></p>
-         <!-- Добавляем изображения -->
-             <img id="topicImage1" src="" alt="Изображение 1" class="topic-image">
-             <img id="topicImage2" src="" alt="Изображение 2" class="topic-image">
-         </div>
-         <button onclick="backToTheory()">Вернуться к выбору тем</button>
-     </div>
+    <!-- Страница темы -->
+    <div id="topicContent" class="container" style="display:none;">
+        <!-- Добавляем название темы в верхней части -->
+        <h2 id="topicTitle" class="topic-header"></h2>
+        <div id="topicTextContainer">
+            <p id="topicText"></p>
+            <!-- Добавляем изображения -->
+            <img id="topicImage1" src="" alt="Изображение 1" class="topic-image">
+            <img id="topicImage2" src="" alt="Изображение 2" class="topic-image">
+        </div>
+        <button onclick="backToTheory()">Вернуться к выбору тем</button>
+    </div>
 
     <!-- Тест -->
     <div id="quizSection" class="container" style="display:none;">
@@ -60,6 +68,15 @@
         <button onclick="backToMainMenu()">Вернуться в главное меню</button>
         <button onclick="restartQuiz()">Пройти тест заново</button>
         <button onclick="goToTheory()">Перейти к теории</button>
+    </div>
+
+    <!-- Модальное окно для ввода имени -->
+    <div id="nicknameModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>Как вас зовут?</p>
+            <input type="text" id="nicknameInput" placeholder="Введите имя (до 10 символов)" maxlength="10" pattern="[A-Za-z0-9\.]+">
+            <button onclick="saveNickname()">Сохранить</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
