@@ -382,3 +382,56 @@ function backToMainMenu() {
     document.getElementById('quizSection').style.display = 'none';
     document.getElementById('resultsSection').style.display = 'none';
 }
+// Функция для отображения модального окна
+function showNicknameModal() {
+    document.getElementById('nicknameModal').style.display = 'block';
+}
+
+// Функция для сохранения имени пользователя
+function saveNickname() {
+    const nicknameInput = document.getElementById('nicknameInput');
+    const nickname = nicknameInput.value.trim();
+
+    // Проверка на валидность имени
+    if (!/^[A-Za-z0-9\.]+$/.test(nickname)) {
+        alert('Имя может содержать только буквы, цифры и точки.');
+        return;
+    }
+
+    if (nickname.length === 0) {
+        alert('Имя не может быть пустым.');
+        return;
+    }
+
+    // Сохраняем имя в localStorage
+    localStorage.setItem('userNickname', nickname);
+
+    // Обновляем кнопку никнейма
+    updateNicknameButton(nickname);
+
+    // Скрываем модальное окно
+    document.getElementById('nicknameModal').style.display = 'none';
+}
+
+// Функция для обновления кнопки никнейма
+function updateNicknameButton(nickname) {
+    const nicknameButtonContainer = document.getElementById('nicknameButtonContainer');
+    nicknameButtonContainer.innerHTML = `
+        <button id="savedNicknameButton" onclick="showNicknameModal()" style="background-color: #e0e0e0; color: black;">
+            ${nickname}
+        </button>
+    `;
+}
+
+// Функция для загрузки сохраненного имени при запуске приложения
+function loadNickname() {
+    const savedNickname = localStorage.getItem('userNickname');
+    if (savedNickname) {
+        updateNicknameButton(savedNickname);
+    }
+}
+
+// Загружаем имя при запуске приложения
+window.onload = function () {
+    loadNickname();
+};
