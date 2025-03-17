@@ -130,3 +130,74 @@ button:hover {
     margin-right: auto;
     display: block; /* Центрируем кнопки */
 }
+
+/* Стиль для контейнера кнопки никнейма */
+#nicknameButtonContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Стиль для кнопки никнейма */
+#nicknameButton {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стиль для иконки внутри кнопки */
+#profileIcon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стиль для модального окна */
+.modal {
+    display: none; /* По умолчанию скрыто */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Стиль для содержимого модального окна */
+.modal-content {
+    text-align: center;
+}
+
+/* Стиль для текстового поля ввода */
+#nicknameInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Стиль для кнопки сохранения */
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
