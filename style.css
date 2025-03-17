@@ -5,7 +5,8 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: flex-start; /* Выравнивание по верхнему краю */
     background-color: #f4f4f4;
     overflow-y: auto; /* Разрешаем прокрутку всей страницы */
     min-height: 100vh; /* Минимальная высота страницы */
@@ -18,6 +19,7 @@ body {
     max-width: 1200px; /* Увеличил максимальную ширину для лучшего отображения */
     margin: 0 auto; /* Центрирование по горизонтали */
     overflow: hidden; /* Убираем лишние полосы прокрутки */
+    padding: 20px 0; /* Добавляем отступы сверху и снизу */
 }
 
 /* Стили для кнопок */
