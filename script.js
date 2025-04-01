@@ -444,6 +444,7 @@ function backToMainMenu() {
 
 // Функция для отображения модального окна
 function showNicknameModal() {
+    const nicknameInput = document.getElementById('nicknameInput');
     document.getElementById('nicknameModal').style.display = 'block';
 }
 
@@ -453,8 +454,8 @@ function saveNickname() {
     const nickname = nicknameInput.value.trim();
 
     // Проверка на валидность имени
-    if (!/^[A-Za-z0-9\.]+$/.test(nickname)) {
-        alert('Имя может содержать только буквы, цифры и точки.');
+    if (!/^[A-Za-zА-Яа-я0-9\.]+$/.test(nickname)) {
+        alert('Имя может содержать только буквы и цифры.');
         return;
     }
 
