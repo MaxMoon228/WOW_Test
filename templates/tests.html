@@ -1,40 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="tests-container">
+<div class="mobile-tests-container">
     <a href="{{ url_for('index') }}" class="back-button">
         <img src="{{ url_for('static', filename='images/back.png') }}" alt="Назад">
     </a>
     <h1 class="tests-title">Тестирования</h1>
-
     <div class="tests-grid">
-        <a href="{{ url_for('test_confirmation', topic='Битва за Москву') }}" class="test-card">
-            <div class="card-content">
-                <h3>Битва за Москву</h3>
-                <p>15 вопросов</p>
-            </div>
-        </a>
-
-        <a href="{{ url_for('test_confirmation', topic='Блокада Ленинграда') }}" class="test-card">
-            <div class="card-content">
-                <h3>Блокада Ленинграда</h3>
-                <p>15 вопросов</p>
-            </div>
-        </a>
-
-        <a href="{{ url_for('test_confirmation', topic='Сталинградская Битва') }}" class="test-card">
-            <div class="card-content">
-                <h3>Сталинградская Битва</h3>
-                <p>15 вопросов</p>
-            </div>
-        </a>
-
-        <a href="{{ url_for('test_confirmation', topic='Курская Битва') }}" class="test-card">
-            <div class="card-content">
-                <h3>Курская Битва</h3>
-                <p>15 вопросов</p>
-            </div>
-        </a>
+        {% for topic in ['Битва за Москву', 'Блокада Ленинграда', 'Сталинградская Битва', 'Курская Битва'] %}
+        <div class="test-card-wrapper">
+            <a href="{{ url_for('test_confirmation', topic=topic) }}" class="test-card">
+                <h3>{{ topic }}</h3>
+                <p>15 вопросов • 5 минут</p>
+            </a>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
